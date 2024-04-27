@@ -1,0 +1,1 @@
+# By using self.V, this information becomes accessible to all methods within the class, allowing them to work with the number of vertices when needed. It helps to maintain the state of the object throughout its lifetime.
