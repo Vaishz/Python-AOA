@@ -25,7 +25,7 @@ def NQueens(k, n, x, result_num):
                 x[k] = i
                 NQueens(k + 1, n, x, result_num)
 
-n = 4
+n = 5
 x = [0] * (n + 1)
 
 # Start recursion to find all solutions

@@ -18,3 +18,4 @@ def subset_sum(numbers, target, partial=[]):
 numbers = [2, 4, 6, 8, 10]
 target = 10
 subset_sum(numbers, target)
+
