@@ -35,5 +35,5 @@ if __name__ == "__main__":
     visited[0] = 1  # Mark city 0 as visited
     travel_salesman(path, visited, 0, 0)
 
-    print("Shortest Path:", *bestPath, "0")
+    print("Shortest Path:", bestPath, "0")
     print("Minimum Cost:", cost)

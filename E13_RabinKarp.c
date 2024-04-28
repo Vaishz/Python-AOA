@@ -4,7 +4,8 @@
 void search(char pat[], char txt[], int q)
 {
 int M = strlen(pat);
-int N = strlen(txt);int i, j;
+int N = strlen(txt);
+int i, j;
 //p will store the hash value of the pattern.
 // t will store the hash value of the current substring of the text being compared to the pattern.
 // h is a variable used in the calculation of the rolling hash function
