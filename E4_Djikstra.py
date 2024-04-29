@@ -13,7 +13,7 @@ def Dijkstra(graph, V, src):     #V is no of vertices
     visited = [False] * V
 
     for a in range(V): 
-        u = minDistance(V, dist, visited)
+        u = minDistance(V, dist, visited)       #index store hoga of min dist
         visited[u] = True
         for v in range(V):
             if graph[u][v] > 0 and not visited[v] and dist[u] + graph[u][v] < dist[v]:
@@ -34,4 +34,9 @@ s = int(input("Enter the source vertex: "))
 Dijkstra(G, n, s)
 
 
-#min_index is a variable used to keep track of the index of the vertex with the minimum distance found so far 
+#min_index is a variable used to keep track of the index of the vertex with the minimum distance found so far
+'''0 5 10 0 20
+5 0 4 2 0 
+10 4 0 3 0
+0 2 3 0 5
+20 0 0 5 0''' 

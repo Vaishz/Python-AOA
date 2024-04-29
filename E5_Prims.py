@@ -1,39 +1,41 @@
-def Prims(graph):
-    parent = [-1] * len(graph)
-    key = [9999] * len(graph)   # stores minimum key value for each vertex
-    mst = [False] * len(graph) # keeps track whether vertex is added or not
+def Min_Key(V,dist,mst):
+    min_val=9999
+    min_index=-1
+    for v in range(V):
+        if (dist[v] < min_val and not mst[v]):
+            min_val = dist[v]
+            min_index = v
+    return min_index
 
-    key[0] = 0  # Starting from the first vertex
+def Prim(graph,V):
+    key = [9999] * V
+    mst = [False] * V
+    parent = [-1] * V
+  
+    key[0] = 0
+    parent[0] = -1
+    
+    for a in range(V):
+        u = Min_Key(V,key,mst)
+        mst[u] = True
+        for v in range(V):
+            if (graph[u][v] and not mst[v] and graph[u][v] < key[v]):
+                key[v] = graph[u][v]
+                parent[v] = u
+    print("Edge \t Weight")
+    for i in range(1,V):
+        print(parent[i],"-",i,"\t",graph[i][parent[i]])
 
-    for _ in range(len(graph)):
-        # Find the vertex with the minimum key value
-        key[0] = 0
-        parent[0]=-1
-        for v in range(len(graph)):
-            if key[v] < min_key and not mst[v]:
-                min_key = key[v]
-                min_index = v
+V = int(input("Enter the no of vertices: "))
+G = []
+print("Enter the adjacency matrix:")
+for i in range(V):
+    data = list(map( int , input().split()))
+    G.append(data)
+Prim(G,V)
 
-        mst[min_index] = True
-
-        # Update key and parent for adjacent vertices
-        for v in range(len(graph)):
-            if graph[min_index][v] and not mst[v] and graph[min_index][v] < key[v]:
-                key[v] = graph[min_index][v]
-                parent[v] = min_index
-
-    # Print the constructed MST
-    print("Edge \tWeight")
-    for i in range(1, len(graph)):
-        print(parent[i], "-", i, "\t", graph[i][parent[i]])
-
-# Example usage:
-graph = [
-    [0, 2, 0, 6, 0],
-    [2, 0, 3, 8, 5],
-    [0, 3, 0, 0, 7],
-    [6, 8, 0, 0, 9],
-    [0, 5, 7, 9, 0]
-]
-
-Prims(graph)
+'''0 5 10 0 20
+5 0 4 2 0 
+10 4 0 3 0
+0 2 3 0 5
+20 0 0 5 0'''

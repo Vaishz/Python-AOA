@@ -47,8 +47,8 @@ def kruskal_mst(graph):
 def prim_mst(graph):
     V = len(graph)
     parent = [-1] * V
-    key = [float('inf')] * V
-    mst_set = [False] * V
+    key = [float('inf')] * V       #dist
+    mst_set = [False] * V  #visited
     
     key[0] = 0
     parent[0] = -1
